@@ -1,0 +1,6 @@
+<?php
+require_once '../config/database.php';$pageTitle='Edit Cabang';$id=(int)($_GET['id']??0);$s=$conn->prepare("SELECT * FROM tbl_cabang WHERE id_cabang=?");$s->bind_param("i",$id);$s->execute();$d=$s->get_result()->fetch_assoc();if(!$d){set_flash('warning','Cabang tidak ditemukan.');redirect('index.php');}
+if($_SERVER['REQUEST_METHOD']==='POST'){$nama=trim($_POST['nama_cabang']??'');$kota=trim($_POST['kota']??'');if($nama!==''&&$kota!==''){$u=$conn->prepare("UPDATE tbl_cabang SET nama_cabang=?,kota=? WHERE id_cabang=?");$u->bind_param("ssi",$nama,$kota,$id);$u->execute();set_flash('success','Cabang diperbarui.');redirect('index.php');}}
+include '../includes/header.php';?>
+<div class="card content-card"><div class="card-body p-4"><form method="post"><div class="mb-3"><label class="form-label">Nama Cabang</label><input class="form-control" name="nama_cabang" value="<?=e($d['nama_cabang'])?>" required></div><div class="mb-3"><label class="form-label">Kota</label><input class="form-control" name="kota" value="<?=e($d['kota'])?>" required></div><a href="index.php" class="btn btn-light">Batal</a> <button class="btn btn-primary">Simpan Perubahan</button></form></div></div>
+<?php include '../includes/footer.php';?>
