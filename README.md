@@ -1,126 +1,244 @@
-Sistem Informasi Penjualan Toko
-Aplikasi sistem informasi penjualan toko yang dikembangkan menggunakan
-Laravel sebagai backend dan Vue.js sebagai frontend. Aplikasi
-menggunakan database MySQL/MariaDB dengan nama db_tokoku.
-Teknologi yang Digunakan
-- Backend: Laravel
-- Frontend: Vue.js
+Sistem Informasi Penjualan Toko Berbasis PHP Native
+Aplikasi Sistem Informasi Penjualan Toko merupakan aplikasi yang dikembangkan menggunakan PHP Native sebagai backend, HTML, CSS, dan JavaScript sebagai frontend. Aplikasi menggunakan database MySQL/MariaDB dengan nama db_tokoku.
+1. Teknologi yang Digunakan
+- Backend: PHP Native
+- Frontend: HTML, CSS, JavaScript
+- Framework CSS: Bootstrap 5 (opsional)
 - Database: MySQL / MariaDB
 - Local Development: XAMPP
-- Dependency Manager: Composer dan NPM
-Fitur dan Komponen Database
-Database db_tokoku memiliki komponen berikut berdasarkan file SQL:
-Tabel
-  Nama Tabel                  Keterangan
-  tbl_pelanggan             Menyimpan data pelanggan
-tbl_transaksi             Menyimpan data transaksi penjualan
-tbl_detail_transaksi      Menyimpan detail produk pada transaksi
-tbl_cabang                Menyimpan data cabang
-log_pelanggan             Mencatat aktivitas penambahan pelanggan
-log_perubahan_pelanggan   Mencatat perubahan nama pelanggan
-View
-- view_pelanggan --- menampilkan data pelanggan.
-- view_transaksi_pelanggan --- menampilkan transaksi beserta data
-  pelanggan.
-- view_total_belanja --- menampilkan jumlah transaksi dan total
-  belanja setiap pelanggan.
-Stored Procedure
-- TampilPelanggan
-- CariPelanggan
-- TambahPelanggan
-- HitungPelanggan
-- LaporanTransaksi
-Stored Function
-- HitungDiskon
-- HitungPajak
-- HitungTotal
-- KategoriBelanja
-- KonversiNilai
-Trigger
-- after_insert_pelanggan --- mencatat penambahan pelanggan ke
-  log_pelanggan.
-- after_update_pelanggan --- mencatat perubahan nama pelanggan ke
-  log_perubahan_pelanggan.
-- before_insert_transaksi --- menolak transaksi jika total_belanja
-  bernilai negatif.
-Persyaratan
-Pastikan perangkat sudah memiliki:
-- PHP yang sesuai dengan versi Laravel yang digunakan.
-- Composer.
-- Node.js dan NPM.
-- MySQL atau MariaDB (dapat menggunakan XAMPP).
-- Git (opsional).
-Cara Instalasi
-1. Clone atau salin project ke komputer:
-   git clone URL_REPOSITORY
-   cd nama-folder-project
-   Jika project sudah tersedia di komputer, langsung buka folder
-   project melalui terminal.
-2. Instal dependency Laravel:
-   composer install
-3. Buat file konfigurasi environment:
-   cp .env.example .env
-   Pada Windows CMD, jika perintah cp tidak tersedia, gunakan:
-   copy .env.example .env
-4. Buat application key:
-   php artisan key:generate
-5. Buat database bernama db_tokoku melalui phpMyAdmin atau MariaDB.
-6. Import file SQL database db_tokoku melalui phpMyAdmin:
-   - Pilih database db_tokoku.
-   - Buka menu Import.
-   - Pilih file db_tokoku.sql.
-   - Klik Import atau Go.
-   Import SQL ini akan membuat struktur tabel, data contoh, View,
-   Stored Procedure, Function, dan Trigger yang terdapat di dalam dump.
-7. Atur koneksi database pada file .env:
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=db_tokoku
-   DB_USERNAME=root
-   DB_PASSWORD=
-   Sesuaikan username, password, dan port dengan konfigurasi
-   MySQL/MariaDB di komputer.
-8. Instal dependency frontend:
-   npm install
-9. Jalankan aplikasi Laravel:
-   php artisan serve
-10. Jalankan Vite untuk frontend Vue.js pada terminal lain:
-    npm run dev
-11. Buka alamat aplikasi yang ditampilkan oleh Laravel, biasanya:
-    http://127.0.0.1:8000
-Struktur Folder
-Struktur folder dapat berbeda sesuai konfigurasi project Laravel dan
-Vue.js yang digunakan. Folder utama Laravel umumnya:
-nama-folder-project/
-├── app/
-├── bootstrap/
-├── config/
-├── database/
-├── public/
-├── resources/
+- Code Editor: Visual Studio Code
+- Web Browser: Google Chrome / Microsoft Edge
+2. Fitur dan Komponen Database
+Database db_tokoku memiliki komponen berikut.
+
+A. Tabel
+Nama Tabel	Keterangan
+tbl_pelanggan	Menyimpan data pelanggan
+tbl_transaksi	Menyimpan data transaksi penjualan
+tbl_detail_transaksi	Menyimpan detail produk pada transaksi
+tbl_cabang	Menyimpan data cabang
+log_pelanggan	Mencatat aktivitas penambahan pelanggan
+log_perubahan_pelanggan	Mencatat perubahan nama pelanggan
+
+B. View
+1. view_pelanggan – Menampilkan data pelanggan.
+2. view_transaksi_pelanggan – Menampilkan transaksi beserta data pelanggan.
+3. view_total_belanja – Menampilkan jumlah transaksi dan total belanja setiap pelanggan.
+C. Stored Procedure
+1. TampilPelanggan
+2. CariPelanggan
+3. TambahPelanggan
+4. HitungPelanggan
+5. LaporanTransaksi
+D. Stored Function
+1. HitungDiskon
+2. HitungPajak
+3. HitungTotal
+4. KategoriBelanja
+5. KonversiNilai
+E. Trigger
+1. after_insert_pelanggan – Mencatat penambahan pelanggan ke log_pelanggan.
+2. after_update_pelanggan – Mencatat perubahan nama pelanggan ke log_perubahan_pelanggan.
+3. before_insert_transaksi – Menolak transaksi jika total_belanja bernilai negatif.
+3. Persyaratan Instalasi
+Pastikan komputer sudah memiliki:
+- PHP versi yang sesuai.
+- XAMPP (Apache dan MySQL/MariaDB).
+- Visual Studio Code.
+- Web Browser.
+- Composer (opsional, jika menggunakan library PHP tambahan).
+4. Cara Instalasi
+Langkah 1. Membuat Folder Project
+
+Buka folder:
+C:\xampp\htdocs
+
+
+Buat folder project dengan nama:
+tokoku
+
+
+Langkah 2. Membuat Database
+1. Jalankan XAMPP.
+2. Aktifkan Apache dan MySQL.
+3. Buka browser.
+4. Masuk ke:
+http://localhost/phpmyadmin
+
+
+5. Buat database baru bernama:
+db_tokoku
+
+
+Langkah 3. Import Database
+1. Pilih database db_tokoku.
+2. Klik menu Import.
+3. Pilih file db_tokoku.sql.
+4. Klik Import atau Go.
+Import tersebut akan membuat tabel, data contoh, View, Stored Procedure, Function, dan Trigger yang tersedia dalam file SQL.
+
+Langkah 4. Membuat Koneksi Database
+
+Buat file koneksi.php.
+
+Simpan di folder:
+C:\xampp\htdocs\tokoku
+
+
+Isi kode:
+<?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "db_tokoku";
+
+$koneksi = mysqli_connect(
+    $host,
+    $user,
+    $password,
+    $database
+);
+
+if (!$koneksi) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
+}
+
+?>
+
+
+Sesuaikan username, password, dan port jika konfigurasi MySQL berbeda.
+
+Langkah 5. Membuat File Project
+
+Buat struktur folder seperti berikut.
+tokoku/
+│
+├── koneksi.php
+├── index.php
+├── login.php
+├── logout.php
+│
+├── dashboard.php
+│
+├── pelanggan/
+│   ├── index.php
+│   ├── tambah.php
+│   ├── edit.php
+│   ├── hapus.php
+│
+├── transaksi/
+│   ├── index.php
+│   ├── tambah.php
+│   ├── detail.php
+│   └── laporan.php
+│
+├── cabang/
+│   ├── index.php
+│   ├── tambah.php
+│   └── edit.php
+│
+├── laporan/
+│   └── index.php
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   │
 │   ├── js/
-│   └── views/
-├── routes/
-├── storage/
-├── tests/
-├── .env.example
-├── artisan
-├── composer.json
-└── package.json
-Catatan
-- Jangan menjalankan import SQL berulang kali pada database yang sudah
-  berisi data penting karena dapat menyebabkan konflik tabel atau
-  data.
-- File SQL yang digunakan harus sesuai dengan database project.
-- Jalankan php artisan migrate hanya jika project memang menggunakan
-  migration Laravel untuk membuat atau memperbarui struktur database.
-  Jika struktur database sudah dibuat melalui file SQL, jangan
-  menjalankan migration yang membuat tabel dengan nama yang sama tanpa
-  memeriksa isinya terlebih dahulu.
-- Pastikan konfigurasi .env sesuai dengan server database lokal.
-Pengembang
-Isi bagian ini dengan nama pengembang atau anggota kelompok.
-- Nama: \(Nama Pengembang\)
-- Kelas: \(Kelas\)
+│   │   └── script.js
+│   │
+│   └── img/
+│
+└── db_tokoku.sql
+
+
+Langkah 6. Menjalankan Aplikasi
+1. Pastikan Apache dan MySQL aktif di XAMPP.
+2. Buka Google Chrome.
+3. Masukkan alamat:
+http://localhost/tokoku/
+
+
+4. Aplikasi Sistem Informasi Penjualan Toko akan ditampilkan.
+5. Fitur Aplikasi
+Fitur yang dapat dikembangkan dalam aplikasi:
+No.	Fitur	Keterangan
+1	Login	Login admin
+2	Dashboard	Menampilkan ringkasan penjualan
+3	Data Pelanggan	Tambah, tampil, edit, hapus pelanggan
+4	Data Transaksi	Mengelola transaksi penjualan
+5	Detail Transaksi	Menampilkan detail transaksi
+6	Data Cabang	Mengelola data cabang
+7	Laporan	Menampilkan laporan penjualan
+8	Database	Menggunakan View, Procedure, Function, Trigger
+
+6. Penggunaan Komponen Database
+Aplikasi PHP Native akan terhubung dengan database menggunakan MySQLi.
+
+Contoh menampilkan data pelanggan menggunakan PHP:
+<?php
+
+include "koneksi.php";
+
+$query = mysqli_query(
+    $koneksi,
+    "SELECT * FROM view_pelanggan"
+);
+
+while ($data = mysqli_fetch_assoc($query)) {
+
+?>
+
+<tr>
+    <td><?= htmlspecialchars($data['id_pelanggan']) ?></td>
+    <td><?= htmlspecialchars($data['nama_pelanggan']) ?></td>
+</tr>
+
+<?php
+}
+?>
+
+
+PHP juga dapat menjalankan Stored Procedure menggunakan:
+<?php
+
+include "koneksi.php";
+
+$query = mysqli_query(
+    $koneksi,
+    "CALL TampilPelanggan()"
+);
+
+while ($data = mysqli_fetch_assoc($query)) {
+    echo $data['nama_pelanggan'] . "<br>";
+}
+
+?>
+
+
+7. Catatan
+- Aplikasi menggunakan PHP Native, bukan Laravel.
+- Frontend menggunakan HTML, CSS, JavaScript, dan Bootstrap.
+- Database tetap menggunakan MySQL/MariaDB.
+- Koneksi database menggunakan MySQLi.
+- File SQL harus sesuai dengan struktur database project.
+- Jangan mengimpor file SQL berulang kali pada database yang sudah berisi data penting.
+- Gunakan prepared statement untuk query yang menerima input pengguna.
+- Gunakan htmlspecialchars() untuk menampilkan data agar lebih aman.
+8. Identitas Pengembang
+- Nama: (Nama Pengembang)
+- Kelas: (Kelas)
 - Jurusan: Rekayasa Perangkat Lunak (RPL)
+
+Perubahan teknologi:
+Sebelumnya	Sekarang
+Laravel	PHP Native
+Vue.js	HTML, CSS, JavaScript
+Composer	Tidak wajib
+NPM	Tidak wajib
+Laravel Artisan	Tidak digunakan
+MySQL/MariaDB	MySQL/MariaDB
+XAMPP	XAMPP
+
+Catatan penting: Dokumen ini merupakan rancangan konversi teknologi. File SQL dan struktur kolom database tetap harus diperiksa agar seluruh halaman PHP sesuai dengan database yang sebenarnya.
